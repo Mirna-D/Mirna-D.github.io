@@ -1,0 +1,113 @@
+.navbar {
+    background-color: rgb(94, 131, 255);
+    color: white;
+    padding: 0!important;
+    display: flex;
+    font-family: 'Katibeh', cursive;
+}
+
+.container .navbar h1 {
+    font-size: 45px;
+}
+
+.navbar .container .collapse .home img {
+    border-radius: 50px;
+    height: auto;
+    width: 35px;
+    margin-left: 2vw;
+}
+
+.navbar .container .collapse img {
+    height: auto;
+    width: 35px;
+    margin-left: 2vw;
+}
+
+.sidebar {
+    position: fixed;
+    top: 50px;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    padding: 48px 0 0;
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+    font-family: 'Katibeh', cursive;
+    font-size: 20px;
+}
+
+main h1, b {
+    color: rgb(94, 131, 255);
+    font-family: 'Nova Slim', cursive;
+}
+
+main h1 {
+    margin-top: 50px;
+}
+
+main p, ol {
+    font-family: 'Nova Slim', cursive;
+}
+
+main .pendahuluan img {
+    height: auto;
+    width: 55vw;
+    display: block;
+    margin: auto;
+}
+
+main .udp img {
+    height: auto;
+    width: 25vw;
+    display: block;
+    margin: auto;
+}
+
+main .checksum img {
+    height: auto;
+    widows: 25vw;
+    display: block;
+    margin: auto;
+}
+
+
+@keyframes drop {
+	0% {
+		opacity: 0;
+		transform: translateY(-80px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0px);
+	}
+}
+
+@media screen and (max-width: 1024px) {
+    .navbar {
+        padding: 0!important;
+        display: flex;
+    }
+    .navbar .container h1{
+        font-size: 37px;
+    }
+    .navbar .container .collapse img, .home img {
+        height: auto;
+        width: 30px;
+        margin-left: 2vw;
+    }
+    .navbar .container .collapse .home img{
+        height: auto;
+        width: 30px;
+        margin-left: 2vw;
+    }
+    main h1 {
+        font-size: 28px;
+        margin-top: 40px;
+    }
+    main p, b, ol {
+    font-size: 15px;
+    }
+    main .checksum img {
+        height: 250px;
+        width: auto;
+    }
+}

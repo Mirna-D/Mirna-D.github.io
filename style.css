@@ -1,0 +1,125 @@
+body {
+    overflow-y: hidden;
+}
+
+.navbar {
+    font-family: 'Katibeh', cursive;
+}
+
+.navbar .collapse {
+    font-size: 25px;
+}
+
+.jumbotron {
+    background-color: rgb(250, 219, 225);
+    background-image: url(image/phonegap_lab.png);
+    text-align: center;
+    color: black;
+    height: 100vh;
+    background-repeat: no-repeat;
+}
+
+.jumbotron .display-4 {
+    margin-top: 200px;
+}
+
+.jumbotron h1 {
+    font-family: 'Kavoon', cursive;
+}
+
+.jumbotron p {
+    font-size: 20px;
+    color: black;
+    font-family: 'Nova Slim', cursive;
+}
+
+.jumbotron .btn {
+    background-color: rgb(253, 114, 137);
+    border: none;
+    border-radius: 25px;
+    padding-left: 25px;
+    padding-right: 25px;
+    margin-top: 40px;
+    font-family: 'Nova Slim', cursive;
+}
+
+.about {
+    height: 100vh;
+    align-items: center;
+    background-color:   rgb(255, 203, 211);
+}
+
+.about .container {
+    padding-top: 0.5%;
+}
+
+.about h2 {
+    margin-top: 90px;
+    font-weight: 650;
+    font-size: 40px;
+    color:  black;
+    font-family: 'Kavoon', cursive;
+}
+
+.about hr {
+    border-width: 4px;
+    border-color:  rgb(253, 114, 137);
+}
+
+.about .me {
+    margin-top: 50px;
+    padding-left: 100px;
+    padding-right: 100px;
+    font-size: 19px;
+    font-family: 'Handlee', cursive;
+}
+
+.about .me .img {
+    width: 12vw;
+    height: 25vh;
+    border-radius: 25px;
+    margin-bottom: 5vh;
+}
+
+@keyframes drop {
+	0% {
+		opacity: 0;
+		transform: translateY(-80px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0px);
+	}
+}
+
+@media screen and (max-width: 1024px) {
+    .navbar .container .navbar h1 {
+        font-size: 30px;
+    }
+    .jumbotron {
+        flex-direction: column;
+    }
+    .jumbotron .container {
+        margin-top: 5vh;
+		text-align: center;
+    }
+    .jumbotron .container h1 {
+        font-size: 30px;
+    }
+    .jumbotron .container p {
+        font-size: 18px;
+    }
+    .about .me .img {
+        height: auto;
+        width: 14vw;
+        border-radius: 8px;
+        margin-bottom: 2vh;
+        margin-top: -5vh;
+    }
+    .about .container h2 {
+        font-size: 28px;
+    }
+    .about .container .me p {
+        font-size: 15px;
+    }
+}
