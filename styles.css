@@ -111,3 +111,9 @@ main .checksum img {
         width: auto;
     }
 }
+
+@media (max-width: 1199px)
+.sidebar {
+    width: 80px;
+    position: fixed;
+}
