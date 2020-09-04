@@ -110,8 +110,12 @@ main .checksum img {
         height: 250px;
         width: auto;
     }
-    main .udp img, .pendahuluan img {
-	height:170px;
+    main .udp img {
+	height:200px;
+	width: auto;
+    }
+    main .pendahuluan img {
+	height:200px;
 	width: auto;
     }
 }
