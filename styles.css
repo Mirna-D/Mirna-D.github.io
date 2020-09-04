@@ -110,10 +110,8 @@ main .checksum img {
         height: 250px;
         width: auto;
     }
-}
-
-@media (max-width: 1199px)
-.sidebar {
-    width: 80px;
-    position: fixed;
+    main .udp img, .pendahuluan img {
+	height:170px;
+	width: auto;
+    }
 }
