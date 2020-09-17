@@ -34,7 +34,11 @@ body {
 }
 
 .jumbotron .btn {
+<<<<<<< HEAD
     background-color:rgb(51, 51, 53);
+=======
+    background-color: rgb(47, 96, 255);
+>>>>>>> 52c452e73edd130de9b81f8a7657c1ae669fc906
     border: none;
     border-radius: 25px;
     padding-left: 25px;
@@ -46,7 +50,11 @@ body {
 .about {
     height: 100vh;
     align-items: center;
+<<<<<<< HEAD
     background-color: rgb(209, 209, 209);
+=======
+    background-color: rgb(118, 193, 255);
+>>>>>>> 52c452e73edd130de9b81f8a7657c1ae669fc906
 }
 
 .about .container {
@@ -63,7 +71,11 @@ body {
 
 .about hr {
     border-width: 4px;
+<<<<<<< HEAD
     border-color: rgb(53, 53, 53);
+=======
+    border-color: rgb(92, 102, 255);
+>>>>>>> 52c452e73edd130de9b81f8a7657c1ae669fc906
 }
 
 .about .me {
