@@ -1,5 +1,5 @@
 .navbar {
-    background-color: rgb(94, 131, 255);
+    background-color: rgb(56, 56, 56);
     color: white;
     padding: 0!important;
     display: flex;
@@ -34,13 +34,17 @@
     font-size: 20px;
 }
 
+.sidebar svg, a{
+    color: rgb(56, 56, 56);
+}
+
 main h2, b {
-    color: rgb(94, 131, 255);
+    color: rgb(56, 56, 56);
     font-family: 'Nova Slim', cursive;
 }
 
 main h2 {
-    margin-top: 50px;
+    margin-top: 57px;
 }
 
 main p, ol {
@@ -55,16 +59,16 @@ main .pendahuluan img {
     margin: auto;
 }
 
-main .udp img {
+main .struktur img {
     height: auto;
-    width: 25vw;
+    width: 33vw;
     display: block;
     margin: auto;
 }
 
-main .checksum img {
+main .mekanisme img {
     height: auto;
-    widows: 25vw;
+    width: 45vw;
     display: block;
     margin: auto;
 }
@@ -105,14 +109,6 @@ main .checksum img {
     }
     main p, b, ol {
     font-size: 15px;
-    }
-    main .checksum img {
-        height: 250px;
-        width: auto;
-    }
-    main .udp img {
-	height:250px;
-	width: auto;
     }
     main .pendahuluan img {
 	height:200px;

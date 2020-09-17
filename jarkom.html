@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Aladin&family=Berkshire+Swash&family=Boogaloo&family=Chela+One&family=Germania+One&family=Handlee&family=Katibeh&family=Kavoon&family=Nova+Slim&family=Roboto&display=swap" rel="stylesheet">
-    <title>Computer Network</title>
+    <title>Transport Layer UDP</title>
 </head>
 <body>
     <header class="navbar navbar-expand navbar-dark flex-column flex-md-row bd-navbar fixed-top">
@@ -16,6 +16,15 @@
             </nav>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
+                  <li class="cmp nav-item dropdown">
+                    <a class="nav-link dropdown-toggle font-weight-bold" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <img src="img/cmp.png" alt="">
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                      <a class="dropdown-item" href="jarkom.html">Trasport Layer UDP</a>
+                      <a class="dropdown-item" href="tcp.html">Trasport Layer TCP</a>
+                    </div>
+                  </li>
                   <li>
                     <a class="home" href="index.html"><img src="img/home.png" alt=""></a>
                   </li>
@@ -37,23 +46,10 @@
         <div class="row">
           <nav class="col-md-2 d-none d-md-block bg-light sidebar">
             <div class="sidebar-sticky">
-              <ul class="nav flex-column">
-                <li class="nav-item">
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-layers"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
-                    Computer Network
-                  </a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="jarkom.html">Trasport Layer</a>
-                  </div>
-                </li>
-              </ul>
-      
-              <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-                <span>Transport Layer</span>
+              <h4 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                <span>Transport Layer UDP</span>
 
-              </h6>
+              </h4>
               <ul class="nav flex-column mb-2">
                 <li class="nav-item">
                   <a class="nav-link" href="#pendahuluan">
@@ -92,7 +88,7 @@
           <main role="main" align="justify" class="col-md-9 ml-sm-auto col-lg-10 px-4 "><div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
            <nav class="pendahuluan" id="pendahuluan">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-              <h1>Pendahuluan</h1>
+              <h2>Pendahuluan</h2>
             </div>
             <p>Lapisan atau layer pada sebuah koneksi atau jaringan komputer mengacu pada apa yang kita kenal dengan nama <b>OSI <i>(Open System Interconnection)</i> layer</b>. 
               OSI layer merupakan sebuah sistem logic yang terdiri dari tujuh lapisan, yang memiliki peran penting dalam proses transmisi data dan sebuah koneksi jaringan.  
@@ -104,7 +100,7 @@
           </nav>
            <nav class="pengertian" id="pengertian">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                <h1>Transport Layer dan Fungsinya</h1>
+                <h2>Transport Layer dan Fungsinya</h2>
             </div>
              <p><b>Transport Layer</b> merupakan sebuah layer yang dapat menggabungkan beberapa koneksi transport ke dalam jaringan koneksi yang sama. 
               Transport Layer bertanggung jawab untuk menyampaikan data ke proses aplikasi sesuai pada komputer host. 
@@ -144,7 +140,7 @@
             </nav>
            <nav class="peran" id="peran">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                <h1>Peran Penting Transport Layer</h1>
+                <h2>Peran Penting Transport Layer</h2>
             </div>
             <p>Dari beberapa fungsi dasar di atas, transport layer sendiri memiliki
               beberapa peran penting yang didefinisikan secara teknis, diantaranya:</p>
@@ -172,7 +168,7 @@
           </nav>
            <nav class="udp" id="udp">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                <h1>User Datagram Protocol (UDP)</h1>
+                <h2>User Datagram Protocol (UDP)</h2>
             </div>
             <p><b>User Datagram Protocol (UDP)</b> merupakan salah satu protocol trasport data sehingga mendukung atau memungkinkan terjadinya komunikasi yang <i>unreliable,</i>
              tanpa adanya koneksi antar host. protocol jenis ini didefinisikan dalam RFC-768. Melalui UDP, aplikasi maupun software dapat mengirimkan pesan kepada komputer lain
@@ -197,7 +193,7 @@
             </nav>
             <nav class="checksum" id="checksum">
               <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                <h1>Checksumg</h1>
+                <h2>Checksumg</h2>
             </div>
             <p>Checksum digunakan untuk menentukan apakah bit dalam segmen UDP telah diubah saat dipindahkan dari sumber ke tujuan.</p>
             <b>Pengirim</b>
