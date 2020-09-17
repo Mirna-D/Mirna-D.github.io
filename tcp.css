@@ -59,6 +59,13 @@ main .pendahuluan img {
     margin: auto;
 }
 
+main .pengertian img {
+    height: auto;
+    width: 37vw;
+    display: block;
+    margin: auto;
+}
+
 main .struktur img {
     height: auto;
     width: 33vw;

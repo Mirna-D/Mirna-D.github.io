@@ -55,6 +55,13 @@ main .pendahuluan img {
     margin: auto;
 }
 
+main .peran img {
+    height: auto;
+    width: 35vw;
+    display: block;
+    margin: auto;
+}
+
 main .udp img {
     height: auto;
     width: 25vw;
