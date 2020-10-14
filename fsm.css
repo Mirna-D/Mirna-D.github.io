@@ -1,0 +1,180 @@
+.navbar {
+    background-color: rgb(0, 61, 8);
+    color: white;
+    padding: 0!important;
+    display: flex;
+    font-family: 'Katibeh', cursive;
+}
+
+.container .navbar h1 {
+    font-size: 45px;
+}
+
+.navbar .container .collapse img {
+    height: auto;
+    width: 30px;
+    margin-left: 2vw;
+    margin-top: 2vh;
+}
+
+.navbar .container .collapse .ig img {
+    height: auto;
+    width: 25px;
+}
+
+.sidebar {
+    position: fixed;
+    top: 50px;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    padding: 48px 0 0;
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.1);
+    font-family: 'Katibeh', cursive;
+    font-size: 20px;
+}
+
+.sidebar svg, a{
+    color: rgb(0, 61, 8);
+}
+
+main h3, h2, b {
+    color: rgb(0, 61, 8);
+    font-family: 'Nova Slim', cursive;
+}
+
+main h3, h2 {
+    margin-top: 65px;
+}
+
+main p, ol, ul {
+    font-family: 'Nova Slim', cursive;
+    font-size: 17px;
+}
+
+main .pendahuluan img {
+    height: auto;
+    width: 45vw;
+    display: block;
+    margin: auto;
+}
+
+main .pengirim .sender{
+    height: auto;
+    width: 45vw;
+    display: block;
+    margin: auto;
+}
+
+main .pengirim .sender1{
+    height: auto;
+    width: 35vw;
+    display: block;
+    margin: auto;
+}
+
+main .pengirim .sender2{
+    height: auto;
+    width: 20vw;
+    display: block;
+    margin: auto;
+}
+
+main .pengirim .sender3{
+    height: auto;
+    width: 30vw;
+    display: block;
+    margin: auto;
+}
+
+main .pengirim .sender4{
+    height: auto;
+    width: 20vw;
+    display: block;
+    margin: auto;
+}
+
+main .penerima .receiver {
+    height: auto;
+    width: 55vw;
+    display: block;
+    margin: auto;
+}
+
+main .penerima .receiver1 {
+    height: auto;
+    width: 35vw;
+    display: block;
+    margin: auto;
+}
+
+
+@keyframes drop {
+	0% {
+		opacity: 0;
+		transform: translateY(-80px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0px);
+	}
+}
+
+@media screen and (max-width: 1024px) {
+    .navbar {
+        padding: 0!important;
+        display: flex;
+    }
+    .navbar .container h1{
+        font-size: 37px;
+    }
+    .navbar .container .collapse img{
+        height: auto;
+        width: 25px;
+        margin-left: 2vw;
+    }
+    .navbar .container .collapse .ig img{
+        height: auto;
+        width: 20px;
+        margin-left: 2vw;
+    }
+    main h2, h3 {
+        font-size: 28px;
+        margin-top: 55px;
+    }
+    main p, b, ol, ul {
+        font-size: 15px;
+    }
+    main .pendahuluan img {
+	    height: 150px;
+	    width: auto;
+    }
+    main .pengirim .sender{
+        height: 300px;
+	    width: auto;
+    }
+    main .pengirim .sender1{
+        height: 150px;
+	    width: auto;
+    }
+    main .pengirim .sender2{
+        height: 200px;
+	    width: auto;
+    }
+    main .pengirim .sender3{
+        height: 150px;
+	    width: auto;
+    }
+    main .pengirim .sender4{
+        height: 200px;
+	    width: auto;
+    }
+    main .penerima .receiver{
+        height: 200px;
+	    width: auto;
+    }
+    main .penerima .receiver1{
+        height: 200px;
+	    width: auto;
+    }
+}

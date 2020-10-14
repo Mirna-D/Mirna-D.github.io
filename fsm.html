@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="fsm.css">
+    <link href="https://fonts.googleapis.com/css2?family=Aladin&family=Berkshire+Swash&family=Boogaloo&family=Chela+One&family=Germania+One&family=Handlee&family=Katibeh&family=Kavoon&family=Nova+Slim&family=Roboto&display=swap" rel="stylesheet">
+    <title>Finite State Machine</title>
+</head>
+<body>
+    <header class="navbar navbar-expand navbar-dark flex-column flex-md-row bd-navbar fixed-top">
+        <div class="container">
+            <nav class="navbar navbar-light bg-transparant">
+                <h1>COMPUTER NETWORK</h1>
+            </nav>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                  <li class="cmp nav-item dropdown">
+                    <a class="nav-link dropdown-toggle font-weight-bold" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <img src="img/cmp.png" alt="">
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                      <a class="dropdown-item" href="jarkom.html">Layer Transport UDP</a>
+                      <a class="dropdown-item" href="tcp.html">Layer Transport TCP</a>
+                      <a class="dropdown-item" href="fsm.html">Layer Transport FSM</a>
+                    </div>
+                  </li>
+                  <li>
+                    <a class="home" href="index.html"><img src="img/home.png" alt=""></a>
+                  </li>
+                  <li>
+                    <a class="gh" href="https://github.com/Mirna-D"><img src="img/gh.png" alt=""></a>
+                  </li>
+                  <li>
+                    <a  class="tw" href="https://twitter.com/mirnad_"><img src="img/tw.png" alt=""></a>
+                  </li>
+                  <li>
+                    <a class="ig" href="https://www.instagram.com/mirnawd_04/"><img src="img/ig.png" alt=""></a>
+                  </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    
+    <div class="container-fluid">
+        <div class="row">
+          <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+            <div class="sidebar-sticky">
+              <h4 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                <span>Pemodelan Protokol Komunikasi Layer Transport</span>
+              </h4>
+              <ul class="nav flex-column mb-2">
+                <li class="nav-item">
+                  <a class="nav-link" href="fsm.html">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                    Pendahuluan
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#pengirim">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                    Prinsip Kerja di Sisi Pengirim
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#penerima">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                    Prinsip Kerja di Sisi Penerima
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+      
+          <main role="main" align="justify" class="col-md-9 ml-sm-auto col-lg-10 px-4 "><div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
+            <h2 class="judul" align="center">Pemodelan Protokol Komunikasi Layer Transport </br> Menggunakan Finite State Machine</h2>
+            <nav class="pendahuluan">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+              <h3>Pendahuluan</h3>
+            </div>
+              <p><b><i>Finite State Machine (FSM)</i></b> adalah sebuah metodologi perancangan sistem kontrol yang menggambarkan tingkah laku atau prinsip kerja sistem dengan menggunakan 
+              tiga hal berikut: <i>State (keadaan), Event (kejadian),</i> dan <i>Action (aksi).</i></p>
+              <p>Pada satu saat dalam periode waktu yang cukup signifikan, sistem akan berada pada salah satu state yang aktif. Sistem dapat beralih 
+                atau bertransisi menuju state lain jika mendapatkan masukan atau event tertentu, baik yang berasal dari perangkat luar atau komponen dalam sistem itu sendiri.
+                transisi keadaan umumnya juga disertai oleh aksi yang dilakukan oleh sistem ketika menanggapi masukkan yang terjadi. Aksi yang dilakukan tersebut dapat berupa 
+                aksi yang sederhana atau melibatkan rangkaian proses yang relatif kompleks.
+              </p>
+              <b>Diagram FSM</b>
+              <img class="fsm" src="img/fsm.png" alt="">
+              <p>Diagram tersebut memperlihatkan FSM dengan dua buah state dan dua buah input serta empat buah aksi output yang berbeda. Ketika sistem mulai dihidupkan, sistem akan menghasilkan <i>Action 1</i> 
+                jika terjadi masukan <i>Event 0, </i>sedangkan jika terjadi <i>Event 1, </i> maka <i>Action 2</i> akan dieksekusi. Selanjutnya sistem akan bertransisi ke keadaan <i>State 1</i> dan seterusnya.
+              </p>
+              <b>Jenis-Jenis FSM</b>
+              <ul>
+                <li>Finite State Machine with Output/Tranducer</li>
+                  <ol>
+                    <li>Moore State Machine</li>
+                    <p><i>Moore Machine</i> adalah tipe dari FSM dimana output dihasikan dari state. Keluaran pada <i>Moore Machine</i> diasosiasikan sebagai state.</p>
+                    <li>Mearly State Machine</li>
+                    <p><i>Mearly Machine</i> memiliki keluaran berupa hasil dari transisi antara state. Keluaran pada <i>Merly Machine</i> diasosiasikan sebagai transisi.</p>
+                  </ol>
+                <li>Finite State Machine without Output</li>
+                  <ol>
+                    <li>Finite State Automata.</li>
+                    <li>Sering digunakan untu pengenalan bahasa.</li>
+                  </ol>
+              </ul>
+           </nav>
+
+           <nav class="pengirim" id="pengirim">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h3>Prinsip Kerja di Sisi Pengirim</h3>
+            </div>
+            <img class="sender" src="img/FSM_Sender.png" alt="">
+            <p>Gambar di atas menunjukkan FSM untuk rdt 3.0 pada sisi pengirim (sender).</p>
+            <p>Adapun arti dari beberapa simbol di atas ialah:</p>
+            <ul>
+              <li>Tanda panah putus-putus : State awal dari FSM.</li>
+              <li>Tanda panah biru : Transisi protokol dari satu state ke state lain atau satu state kembali ke state itu sendiri.</li>
+              <li>Event : Penyebab terjadinya transisi pada state, terletak di atas garis horizontal. Contohnya pada gambar di atas, yakni: <b>rdt_send(data), rdt_rcv(rcvpkt), timeout, dll.</b></li>
+              <li>Action : Aksi/tindakan yang akan dilakukan jika terjadi event, terdapat dibawah garis horizontal. Contohnya pada gambar di atas, yakni: <b>udt_send(sndpkt), start_timer, stop_timer, dll.</b></li>
+              <li>ACK : Acknowledgment, tanda terima dari sisi penerima (receiver).</li>
+              <li>∧ : Tidak ada action yang dilakukan atau tidak ada event yang terjadi.</li>
+            </ul>
+            <b>Wait for Call 0 from Above</b>
+            <p>Dari Gambar di atas, Proses pertama dimulai dari state <b>wait for call 0 from above</b> yang ditunjukkan oleh tanda panah putus-putus</p>
+            <img class="sender1" src="img/FSM_Sender1.png" alt="">
+            <p>Pada state ini, terdapat event <b>rdt_send(data)</b> yang artinya data dari application layer di oper turun ke transport layer. 
+              Event <b>rdt_send(data)</b> kemudian diikuti oleh tiga action yang dilaksanakan secara berurutan, yaitu:
+              <ol>
+                <b><li>sndpkt=make_pkt(0,data,checksum)</li></b>
+                <b><li>udt_send(sndpkt</li></b>
+                <b><li>start_timer</li></b>
+              </ol>
+            </p>
+            <b>Wait for ACK 0</b>
+            <p><img class="sender2" src="img/FSM_Sender2.png" alt=""></p>
+            <p>Pada state <b>wait for ACK 0</b> terdapat tiga event, yakni:
+            <ol>
+              <b><li>rdt_rcv(tcvpkt) && (corrupt(rcvpkt)||isACK(rcvpkt,1))</li></b>
+              <p>Event ini terjadi jika sender menerima ACK 1, padahal status saat ini ialah wait for ACK 0. Pada event ini, tidak dilakukan tindakan apapun (∧)</p>
+              <b><li>timeout</li></b>
+              <p>Event ini menandakan bahwa waktu hitung mundur yang dimulai pada saat data dikirim telah habis, sementara ACK 0 belum diterima oleh sender. Action yang dilakukan pada event ini adalah: 
+                <ul>
+                  <li><b>udt_sender(sndpkt)</b> yang berarti aksi protokol untuk melakukan pengiriman ulang paket.</li>
+                  <li><b>start_timer</b> yang berarti aksi untuk memulai kembali waktu hitung mundur terhadap paket yang baru saja di kirim.</li>
+                </ul>
+              </p>
+              <b><li>rdt_rcv(tcvpkt) && notcorrupt(rcvpkt) && isACK(rcvpkt,0)</li></b>
+              <p>Event ini berarti bahwa paket ACK 0 telah diterima. Selanjutnya akan dilakukan aksi <b>stop_timer</b> yang berarti waktu hitung mundur dihentikan.</p>
+            </ol></p>
+            <b>Wait for Call 1 from Above</b>
+            <p><img class="sender3" src="img/FSM_Sender3.png" alt=""></p>
+            <p>Pada state ini, terdapat dua event, yakni:</p>
+            <ol>
+              <b><li>rdt_rcv(rcvpkt)</li></b>
+              <p>Event ini tidak diikuti oleh action apapun. Event ini akan terjadi pada kasus premature timeout.</p>
+              <b><li>rdt_send(data)</li></b>
+              <p>Event ini memiliki fungsi yang sama dengan event yang terdapat pada state <b>wait for call 1 from above</b>, bedanya hanya terletak pada sequence number. State <b>wait for call 1 from above</b> akan mengirimkan paket dengan sequence number 1.</p>
+            </ol>
+            <b>Wait for ACK 1</b>
+            <p><img class="sender4" src="img/FSM_Sender4.png" alt=""></p>
+            <p>State ini hampir sama dengan state <b>wait for ACK 0</b>, perbedaanya hanya terletak pada nilai sequence number yang ditunggu. Pada state ini, protokol menunggu ACK dengan nilai 1.
+             Jika nilai ACK yang diterima adalah 0, maka state tidak akan berubah dan akan menunggu hingga timeout yang kemudian paket akan dikirim ulang. Jika ACK yang diterima bernilai 1, maka timer akan dihentikan dan state akan berubah menjadi <b>wait for call 0 from above</b>.</p>
+            <p>Siklus ini akan terus berulang dengan cara yang sama sampai pengiriman data selesai.</p>
+          </nav>
+
+           <nav class="penerima" id="penerima">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h3>Prinsip Kerja di Sisi Penerima</h3>
+            </div>
+            <img class="receiver" src="img/FSM_Receiver0.png" alt="">
+            <p>Gambar di atas menunjukkan FSM untuk rdt 3.0 pada sisi pengirim (sender).</p>
+            <b>Wait for 0 from Below</b>
+            <p><img class="receiver1" src="img/FSM_Receiver01.png" alt=""></p>
+            <p>Pada state ini, receiver rdt_rcv menunggu panggilan 0 dari bawah (layer data link). Selain itu, pada state ini terdapat tiga event, yaitu:</p>
+            <ol>
+              <b><li>rdt_rcv(rcvpkt)&&(corrupt(rcvpkt)</li></b>
+              <p>Event ini terjadi jika terdapat data rusak (NAK). Event ini diikuti oleh dua action yang di eksekusi secara berurut, yaitu:
+                <ul>
+                  <li><b>sndpkt=make_pkt(NAK,chksum)</b>, membuat paket NAK dengan checksum.</li>
+                  <li><b>udt_send(sndpkt)</b>, mengirimkan sndpkt yang berisi NAK dan checksum agar di sisi sender menerima pemberitahuan paket rusak.</li>
+                </ul>
+              </p>
+              <b><li>rdt_rcv(rcvpkt)&& notcorrupt(rcvpkt)&&has_seq0(rcvpkt)</li></b>
+              <p>Event ini terjadi jika tidak terdapat data yang rusak (ACK). Event ini diikuti oleh empat aksi, yaitu:
+                <ul>
+                  <li><b>extract(rcvpkt,data)</b>, mengekstrak paket data yang diterima dari sender dengan sequence number 0.</li>
+                  <li><b>deliver_data(data)</b>, mengirimkan data ke layer aplikasi (di sisi penerima).</li>
+                  <li><b>sndpkt=make_pkt(ACK,chksum)</b>, membuat paket ACK dan checksum.</li>
+                  <li><b>udt_send(sndpkt)</b>, mengirimkan sndpkt yang berisi ACK dan checksum agar di sisi sender menerima pemberitahuan paket sampai dan tidak rusak.</li>
+                </ul>
+              </p>
+              <b><li>rdt_rcv(rcvpkt)&& not corrupt(rcvpkt)&&has_seq1(rcvpkt)</li></b>
+              <p>Event ini terjadi jika tidak terdapat data yang rusak, namun sequence number yang diterima bernilai 1. Adapun Action yang dieksekusi yakni:
+              <ul>
+                <li><b>sndpkt=make_pkt(ACK,chksum)</b>, membuat paket ACK dan checksum.</li>
+                  <li><b>udt_send(sndpkt)</b>, mengirimkan sndpkt yang berisi ACK dan checksum agar di sisi sender menerima pemberitahuan paket sampai dan tidak rusak.</li>
+              </ul>
+              </p>
+            </ol>
+            <b>Wait for 1 from Below</b>
+            <p><img class="receiver1" src="img/FSM_Receiver02.png" alt=""></p>
+            <p>Pada state 2 yaitu menunggu panggilan 1 dari bawah (layer data link), memiliki Event yang sama dengan state <b>Wait for 0 from below</b>. yaitu:</p>
+            <ol>
+              <b><li>rdt_rcv(rcvpkt)&&(corrupt(rcvpkt)</li></b>
+              <p>Event ini terjadi jika terdapat data rusak (NAK). Event ini diikuti oleh dua action yang di eksekusi secara berurut, yaitu:
+                <ul>
+                  <li><b>sndpkt=make_pkt(NAK,chksum)</b>, membuat paket NAK dengan checksum.</li>
+                  <li><b>udt_send(sndpkt)</b>, mengirimkan sndpkt yang berisi NAK dan checksum agar di sisi sender menerima pemberitahuan paket rusak.</li>
+                </ul>
+              </p>
+              <b><li>rdt_rcv(rcvpkt)&& not corrupt(rcvpkt)&&has_seq0(rcvpkt)</li></b>
+              <p>Event ini terjadi jika tidak terdapat data yang rusak, namun sequence number yang diterima bernilai 0. Adapun Action yang dieksekusi yakni:
+              <ul>
+                <li><b>sndpkt=make_pkt(ACK,chksum)</b>, membuat paket ACK dan checksum.</li>
+                  <li><b>udt_send(sndpkt)</b>, mengirimkan sndpkt yang berisi ACK dan checksum agar di sisi sender menerima pemberitahuan paket sampai dan tidak rusak.</li>
+              </ul>
+              </p>
+              <b><li>rdt_rcv(rcvpkt)&& notcorrupt(rcvpkt)&&has_seq0(rcvpkt)</li></b>
+              <p>Event ini terjadi jika tidak terdapat data yang rusak (ACK). Event ini diikuti oleh empat aksi, yaitu:
+                <ul>
+                  <li><b>extract(rcvpkt,data)</b>, mengekstrak paket data yang diterima dari sender dengan sequence number 1.</li>
+                  <li><b>deliver_data(data)</b>, mengirimkan data ke layer aplikasi (di sisi penerima).</li>
+                  <li><b>sndpkt=make_pkt(ACK,chksum)</b>, membuat paket ACK dan checksum.</li>
+                  <li><b>udt_send(sndpkt)</b>, mengirimkan sndpkt yang berisi ACK dan checksum agar di sisi sender menerima pemberitahuan paket sampai dan tidak rusak.</li>
+                </ul>
+              </p>
+            </ol>
+           </nav>
+          </main>
+        </div>
+      </div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>
