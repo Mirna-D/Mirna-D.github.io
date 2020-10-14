@@ -170,64 +170,51 @@
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                 <h3>Prinsip Kerja di Sisi Penerima</h3>
             </div>
-            <img class="receiver" src="img/FSM_Receiver0.png" alt="">
+            <img class="receiver" src="img/FSM_Receiver.png" alt="">
             <p>Gambar di atas menunjukkan FSM untuk rdt 3.0 pada sisi pengirim (sender).</p>
             <b>Wait for 0 from Below</b>
             <p><img class="receiver1" src="img/FSM_Receiver01.png" alt=""></p>
-            <p>Pada state ini, receiver rdt_rcv menunggu panggilan 0 dari bawah (layer data link). Selain itu, pada state ini terdapat tiga event, yaitu:</p>
+            <p>Pada state ini, receiver rdt_rcv menunggu panggilan 0 dari bawah (layer data link). Selain itu, pada state ini terdapat dua event, yaitu:</p>
             <ol>
-              <b><li>rdt_rcv(rcvpkt)&&(corrupt(rcvpkt)</li></b>
-              <p>Event ini terjadi jika terdapat data rusak (NAK). Event ini diikuti oleh dua action yang di eksekusi secara berurut, yaitu:
-                <ul>
-                  <li><b>sndpkt=make_pkt(NAK,chksum)</b>, membuat paket NAK dengan checksum.</li>
-                  <li><b>udt_send(sndpkt)</b>, mengirimkan sndpkt yang berisi NAK dan checksum agar di sisi sender menerima pemberitahuan paket rusak.</li>
-                </ul>
-              </p>
               <b><li>rdt_rcv(rcvpkt)&& notcorrupt(rcvpkt)&&has_seq0(rcvpkt)</li></b>
               <p>Event ini terjadi jika tidak terdapat data yang rusak (ACK). Event ini diikuti oleh empat aksi, yaitu:
                 <ul>
                   <li><b>extract(rcvpkt,data)</b>, mengekstrak paket data yang diterima dari sender dengan sequence number 0.</li>
                   <li><b>deliver_data(data)</b>, mengirimkan data ke layer aplikasi (di sisi penerima).</li>
-                  <li><b>sndpkt=make_pkt(ACK,chksum)</b>, membuat paket ACK dan checksum.</li>
-                  <li><b>udt_send(sndpkt)</b>, mengirimkan sndpkt yang berisi ACK dan checksum agar di sisi sender menerima pemberitahuan paket sampai dan tidak rusak.</li>
+                  <li><b>sndpkt=make_pkt(ACK, 0, checksum)</b>, membuat paket yang berisi ACK, sequence number 0 dan checksum.</li>
+                  <li><b>udt_send(sndpkt)</b>, mengirimkan sndpkt agar di sisi sender menerima pemberitahuan paket sampai dan tidak rusak.</li>
                 </ul>
               </p>
-              <b><li>rdt_rcv(rcvpkt)&& not corrupt(rcvpkt)&&has_seq1(rcvpkt)</li></b>
-              <p>Event ini terjadi jika tidak terdapat data yang rusak, namun sequence number yang diterima bernilai 1. Adapun Action yang dieksekusi yakni:
-              <ul>
-                <li><b>sndpkt=make_pkt(ACK,chksum)</b>, membuat paket ACK dan checksum.</li>
-                  <li><b>udt_send(sndpkt)</b>, mengirimkan sndpkt yang berisi ACK dan checksum agar di sisi sender menerima pemberitahuan paket sampai dan tidak rusak.</li>
-              </ul>
+              <b><li>rdt_rcv(rcvpkt)&&(corrupt(rcvpkt)||has_seq1(rcvpkt))</li></b>
+              <p>Event ini terjadi jika terdapat data rusak atau nilai sequence adalah 1. Event ini diikuti oleh dua action yang di eksekusi secara berurut, yaitu:
+                <ul>
+                  <li><b>sndpkt=make_pkt(ACK, 1, checksum)</b>, membuat paket yang berisi ACK, sequence 1 dengan checksum.</li>
+                  <li><b>udt_send(sndpkt)</b>, mengirimkan sndpkt yang berisi NAK dan checksum agar di sisi sender menerima pemberitahuan paket rusak.</li>
+                </ul>
               </p>
             </ol>
             <b>Wait for 1 from Below</b>
             <p><img class="receiver1" src="img/FSM_Receiver02.png" alt=""></p>
             <p>Pada state 2 yaitu menunggu panggilan 1 dari bawah (layer data link), memiliki Event yang sama dengan state <b>Wait for 0 from below</b>. yaitu:</p>
             <ol>
-              <b><li>rdt_rcv(rcvpkt)&&(corrupt(rcvpkt)</li></b>
-              <p>Event ini terjadi jika terdapat data rusak (NAK). Event ini diikuti oleh dua action yang di eksekusi secara berurut, yaitu:
+              <b><li>rdt_rcv(rcvpkt)&&(corrupt(rcvpkt)||has_seq0(rcvpkt))</li></b>
+              <p>Event ini terjadi jika terdapat data rusak atau sequence number yang diterima bernilai 0. Event ini diikuti oleh dua action yang di eksekusi secara berurut, yaitu:
                 <ul>
-                  <li><b>sndpkt=make_pkt(NAK,chksum)</b>, membuat paket NAK dengan checksum.</li>
-                  <li><b>udt_send(sndpkt)</b>, mengirimkan sndpkt yang berisi NAK dan checksum agar di sisi sender menerima pemberitahuan paket rusak.</li>
+                  <li><b>sndpkt=make_pkt(ACK, 0, checksum)</b>, membuat paket yang berisi ACK, sequence number 0, dengan checksum.</li>
+                  <li><b>udt_send(sndpkt)</b>, mengirimkan sndpkt agar di sisi sender menerima pemberitahuan paket rusak.</li>
                 </ul>
               </p>
-              <b><li>rdt_rcv(rcvpkt)&& not corrupt(rcvpkt)&&has_seq0(rcvpkt)</li></b>
-              <p>Event ini terjadi jika tidak terdapat data yang rusak, namun sequence number yang diterima bernilai 0. Adapun Action yang dieksekusi yakni:
-              <ul>
-                <li><b>sndpkt=make_pkt(ACK,chksum)</b>, membuat paket ACK dan checksum.</li>
-                  <li><b>udt_send(sndpkt)</b>, mengirimkan sndpkt yang berisi ACK dan checksum agar di sisi sender menerima pemberitahuan paket sampai dan tidak rusak.</li>
-              </ul>
-              </p>
-              <b><li>rdt_rcv(rcvpkt)&& notcorrupt(rcvpkt)&&has_seq0(rcvpkt)</li></b>
+              <b><li>rdt_rcv(rcvpkt)&& notcorrupt(rcvpkt)&&has_seq1(rcvpkt)</li></b>
               <p>Event ini terjadi jika tidak terdapat data yang rusak (ACK). Event ini diikuti oleh empat aksi, yaitu:
                 <ul>
                   <li><b>extract(rcvpkt,data)</b>, mengekstrak paket data yang diterima dari sender dengan sequence number 1.</li>
                   <li><b>deliver_data(data)</b>, mengirimkan data ke layer aplikasi (di sisi penerima).</li>
-                  <li><b>sndpkt=make_pkt(ACK,chksum)</b>, membuat paket ACK dan checksum.</li>
-                  <li><b>udt_send(sndpkt)</b>, mengirimkan sndpkt yang berisi ACK dan checksum agar di sisi sender menerima pemberitahuan paket sampai dan tidak rusak.</li>
+                  <li><b>sndpkt=make_pkt(ACK, 1, checksum)</b>, membuat paket yang berisi ACK, sequence number 1, dan checksum.</li>
+                  <li><b>udt_send(sndpkt)</b>, mengirimkan sndpkt agar di sisi sender menerima pemberitahuan paket sampai dan tidak rusak.</li>
                 </ul>
               </p>
             </ol>
+            <p>Siklus ini akan terus berlanjut hingga proses pengiriman data selesai.</p>
            </nav>
           </main>
         </div>
